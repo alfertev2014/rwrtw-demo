@@ -1,18 +1,15 @@
-import { el, fr, ref, Component, createRef, renderTemplate } from 'rwrtw';
+import { el, fr, ref, Component, createRef, renderTemplate } from 'rwrtw'
 
 let counter = 0
 const hello = createRef<Element>()
 const even = createRef<Component>()
 const odd = createRef<Component>()
 
-renderTemplate({ parent: document.body },
+renderTemplate(
+    { parent: document.body },
     el('div')(
-        el('h1')(
-            'It Works!'
-        ),
-        ref(hello, el('p', { class: 'paragraph' })(
-            'Hello world!'
-        )),
+        el('h1')('It Works!'),
+        ref(hello, el('p', { class: 'paragraph' })('Hello world!')),
         el('button', null, {
             click: () => {
                 hello.current.textContent = `Hello world ${counter++} times!`
@@ -23,12 +20,8 @@ renderTemplate({ parent: document.body },
                     even.current.hide()
                     odd.current.show()
                 }
-            }
+            },
         })('Increment'),
-        el('div')(
-            ref(even, fr(el('p')("Even!"))),
-            ref(odd, fr(el('p')("Odd!"))),
-        )
+        el('div')(ref(even, fr(el('p')('Even!'))), ref(odd, fr(el('p')('Odd!'))))
     )
 )
-
