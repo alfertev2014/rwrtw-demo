@@ -1,11 +1,11 @@
-import { el, fr, ref, Component, createRef, renderTemplate } from 'rwrtw'
+import { el, ref, createRef, renderTo, hidable, Hidable, fr } from 'rwrtw'
 
 let counter = 0
-const hello = createRef<Element>()
-const even = createRef<Component>()
-const odd = createRef<Component>()
+const hello = createRef<HTMLElement>()
+const even = createRef<Hidable>()
+const odd = createRef<Hidable>()
 
-renderTemplate(
+const app = renderTo(
     { parent: document.body },
     el('div')(
         el('h1')('It Works!'),
@@ -22,6 +22,8 @@ renderTemplate(
                 }
             },
         })('Increment'),
-        el('div')(ref(even, fr(el('p')('Even!'))), ref(odd, fr(el('p')('Odd!'))))
+        el('div')(ref(even, hidable(fr(el('p')('Even!')))), ref(odd, hidable(fr(el('p')('Odd!')))))
     )
 )
+
+app.mount()
