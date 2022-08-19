@@ -27,6 +27,6 @@
     "webpack-dev-server": "^4.10.0"
   },
   "dependencies": {
-    "rwrtw": "^0.0.5"
+    "rwrtw": "^0.0.6"
   }
 }

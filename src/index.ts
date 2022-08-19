@@ -1,4 +1,6 @@
-import { el, ref, createRef, hidable, Hidable, createRootPlaceholder } from 'rwrtw'
+import { createRef, createRootPlaceholder } from 'rwrtw'
+import { button, div, h1, p } from 'rwrtw/lib/abbrev'
+import { Hidable, hidable } from 'rwrtw/lib/components'
 
 let counter = 0
 const hello = createRef<HTMLElement>()
@@ -8,10 +10,10 @@ const odd = createRef<Hidable>()
 const root = createRootPlaceholder(document.body)
 
 root.setContent(
-    el('div')(
-        el('h1')('It Works!'),
-        ref(hello, el('p', { class: 'paragraph' })('Hello world!')),
-        el('button', null, {
+    div()(
+        h1()('It Works!'),
+        hello.as(p({ class: 'paragraph' })('Hello world!')),
+        button(null, {
             click: () => {
                 hello.current.textContent = `Hello world ${++counter} times!`
                 if (counter % 2 === 0) {
@@ -23,6 +25,6 @@ root.setContent(
                 }
             },
         })('Increment'),
-        el('div')(ref(even, hidable(el('p')('Even!'))), ref(odd, hidable(el('p')('Odd!'))))
+        div()(even.as(hidable(p()('Even!'))), odd.as(hidable(p()('Odd!'))))
     )
 )
