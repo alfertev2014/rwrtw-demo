@@ -1,11 +1,11 @@
-import { el, ref, createRef, hidable, Hidable, Placeholder } from 'rwrtw'
+import { el, ref, createRef, hidable, Hidable, createRootPlaceholder } from 'rwrtw'
 
 let counter = 0
 const hello = createRef<HTMLElement>()
 const even = createRef<Hidable>()
 const odd = createRef<Hidable>()
 
-const root = new Placeholder({ parent: document.body })
+const root = createRootPlaceholder(document.body)
 
 root.setContent(
     el('div')(
