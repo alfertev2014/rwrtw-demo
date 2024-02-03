@@ -1,39 +1,26 @@
-import { cmpnt, createRootPlaceholder, on } from 'rwrtw'
-import { button, div, h1, p } from 'rwrtw/lib/abbrev'
-import { ifElse, IfElse } from 'rwrtw'
+import WithReactiveApps from "./pages/WithReactiveApps"
+import LowLevelApps from "./pages/LowLevelApps"
+import WithDslApps from "./pages/WithDslApps"
+import {
+  PlaceholderComponent,
+  createRootPlaceholderAt,
+  placeAtBeginningOf,
+} from "rwrtw"
+import { el, fr } from "rwrtw/lib/template"
 
-const app = cmpnt(() => {
-    let counter = 0
-    let hello: HTMLElement
-    let evenOdd: IfElse
-    
-    const handleClick = () => {
-        hello.textContent = `Hello world ${++counter} times!`
-        evenOdd.condition = counter % 2 === 0
-    }
+import "./style.css"
 
-    return div()(
-        h1()('It Works!'),
-        p({ class: 'paragraph' }, (_) => {
-            hello = _
-        })('Hello world!'),
-        button(
-            null,
-            on({
-                click: handleClick,
-            })
-        )('Increment'),
-        div()(
-            ifElse(
-                true,
-                () => p()('Even!'),
-                () => p()('Odd!'),
-                (_) => (evenOdd = _)
-            ),
-        )
+const App = (): PlaceholderComponent => {
+  const appSection = el("div", { class: 'app-section' })
+  return fr(
+    el("h1")("RWRTW Demo"),
+    el('div', { class: 'main-layout'})(
+      appSection(el("h2")("Low level apps"), LowLevelApps()),
+      appSection(el("h2")("Apps with template DSL"), WithDslApps()),
+      appSection(el("h2")("Apps with reactive"), WithReactiveApps())
     )
-})
+  )
+}
 
-const root = createRootPlaceholder(document.body)
-
-root.setContent(app())
+const root = createRootPlaceholderAt(placeAtBeginningOf(document.body), App())
+root.mount?.()

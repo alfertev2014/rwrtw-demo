@@ -17,7 +17,13 @@ module.exports = {
             use: 'ts-loader',
             include: path.resolve(__dirname, 'src'),
             exclude: /node_modules/
-        }]
+        },
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader'],
+            include: path.resolve(__dirname, 'src'),
+        }
+    ]
     },
     resolve: {
         extensions: ['.ts', '.js']
