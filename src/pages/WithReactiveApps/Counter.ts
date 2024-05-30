@@ -1,6 +1,6 @@
 import { PlaceholderComponent } from "rwrtw"
 import { computed, source } from "rwrtw/lib/reactive/observable"
-import { el, ev } from "rwrtw/lib/template"
+import { el, ev, fr } from "rwrtw/lib/template"
 import { reContent, reIf } from "rwrtw/lib/template/reactive"
 
 const Counter = (): PlaceholderComponent => {
@@ -8,7 +8,7 @@ const Counter = (): PlaceholderComponent => {
 
   return el("div")(
     el("h1")("It Works!"),
-    el("p", { class: "paragraph" })(reContent(counter, () => `Hello world ${counter.current()} times!`)),
+    el("p", { class: "paragraph" })(reContent(counter, () => fr(`Hello world ${counter.current()} times!`))),
     el("button", {
       click: ev(() => {
         counter.change(counter.current() + 1)
