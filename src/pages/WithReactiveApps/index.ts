@@ -24,8 +24,8 @@ const WithReactiveApps = (): PlaceholderComponent => {
       tabButton("List")("List")
     ),
     el("div", { class: "app-container" })(
-      reContent(selectedApp, () => {
-        switch (selectedApp.current()) {
+      reContent(selectedApp, (value) => {
+        switch (value) {
           case "Counter":
             return Counter()
           case "List":
