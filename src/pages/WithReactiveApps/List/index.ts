@@ -52,9 +52,21 @@ const List = (): PlaceholderComponent => {
             reContent(item, (value) => fr(`[${value.id}]`)),
           ),
           el("span", { class: "list-item-value"}) (
-            reContent(item, (value) => fr(`${value.text}`)),
+            reContent(item, (value) => fr(`"${value.text}"`)),
           ),
           el("span")(
+            el("button", {
+              click: reEv(item, (value) => () => {
+                const index = items.data.findIndex(
+                  (item) => item.current().id === value.id,
+                )
+                if (index >= 0) {
+                  items.moveItem(index, 0, item.current())
+                }
+              }),
+              "data-id": reAttr(id),
+            })("Edit"),
+            " ",
             el("button", {
               click: reEv(item, (value) => () => {
                 const index = items.data.findIndex(

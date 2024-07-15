@@ -20,7 +20,7 @@ const Counter = (): PlaceholderComponent => {
     el("p", { class: "paragraph" }, ref(hello))("Hello world!"),
     el("button", {
       click: ev(handleClick),
-      focus: ev(() => console.log("fuck")),
+      focus: ev(() => console.log("focus!")),
     })("Increment"),
     el("div")(ifElse(true, el("p")("Even!"), el("span")("Odd!"), ref(evenOdd)))
   )
