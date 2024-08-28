@@ -1,12 +1,12 @@
 import {
   PlaceholderComponent,
   Switch,
+  hel,
   insertNodeAt,
   placeAtBeginningOf,
   switchElse,
 } from "rwrtw"
 import Counter from "./Counter"
-import { hel } from "rwrtw/lib/dom/dsl"
 
 const LowLevelApps = (): PlaceholderComponent => (place, context) => {
   let switchRef: Switch<string>

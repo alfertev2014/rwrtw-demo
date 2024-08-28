@@ -1,7 +1,5 @@
-import { Dynamic, PlaceholderComponent, dyn } from "rwrtw"
+import { Dynamic, PlaceholderComponent, createRef, createSyncSignal, dyn, el, ev, ref } from "rwrtw"
 import Counter from "./Counter"
-import { createRef, el, ev, ref } from "rwrtw/lib/template"
-import { createSyncSignal } from "rwrtw/lib/reactive/syncSignal"
 
 const WithDslApps = (): PlaceholderComponent => {
   let selectedApp = "Counter"

@@ -1,8 +1,4 @@
-import { PlaceholderComponent } from "rwrtw"
-import { createDynamicList } from "rwrtw/lib/reactive/listModel"
-import { Source, computed, effect, source } from "rwrtw/lib/reactive/observable"
-import { createRef, el, ev, fr, ref } from "rwrtw/lib/template"
-import { reAttr, reContent, reEv, reList } from "rwrtw/lib/template/reactive"
+import { computed, createDynamicList, createRef, effect, el, ev, fr, PlaceholderComponent, reAttr, reContent, reEv, ref, reList, Source, source } from "rwrtw"
 
 import "./style.css"
 

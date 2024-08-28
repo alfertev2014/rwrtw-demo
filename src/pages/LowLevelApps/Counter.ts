@@ -1,12 +1,12 @@
 import {
+  hel,
   ifElse,
   IfElse,
   insertNodeAt,
   placeAtBeginningOf,
   PlaceholderComponent,
+  txt,
 } from "rwrtw"
-import { hel } from "rwrtw/lib/dom/dsl"
-import { txt } from "rwrtw/lib/dom/helpers"
 
 const Counter = (): PlaceholderComponent => (place, context) => {
   let counter = 0

@@ -1,8 +1,5 @@
-import { PlaceholderComponent } from "rwrtw"
+import { computed, el, ev, PlaceholderComponent, reAttr, reContent, source } from "rwrtw"
 import Counter from "./Counter"
-import { el, ev } from "rwrtw/lib/template"
-import { computed, source } from "rwrtw/lib/reactive/observable"
-import { reAttr, reContent } from "rwrtw/lib/template/reactive"
 import List from "./List"
 
 const WithReactiveApps = (): PlaceholderComponent => {

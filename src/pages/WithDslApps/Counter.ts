@@ -1,5 +1,4 @@
-import { ifElse, IfElse, PlaceholderComponent } from "rwrtw"
-import { el, ev, createRef, ref } from "rwrtw/lib/template"
+import { createRef, el, ev, ifElse, IfElse, PlaceholderComponent, ref } from "rwrtw"
 
 const Counter = (): PlaceholderComponent => {
   let counter = 0

@@ -4,9 +4,10 @@ import WithDslApps from "./pages/WithDslApps"
 import {
   PlaceholderComponent,
   createRootPlaceholderAt,
+  el,
+  fr,
   placeAtBeginningOf,
 } from "rwrtw"
-import { el, fr } from "rwrtw/lib/template"
 
 import "./style.css"
 

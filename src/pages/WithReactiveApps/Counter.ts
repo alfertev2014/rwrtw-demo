@@ -1,7 +1,4 @@
-import { PlaceholderComponent } from "rwrtw"
-import { computed, source } from "rwrtw/lib/reactive/observable"
-import { el, ev, fr } from "rwrtw/lib/template"
-import { reContent, reIf } from "rwrtw/lib/template/reactive"
+import { computed, el, ev, fr, PlaceholderComponent, reContent, reIf, source } from "rwrtw"
 
 const Counter = (): PlaceholderComponent => {
   const counter = source(0)
